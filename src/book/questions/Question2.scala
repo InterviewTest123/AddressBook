@@ -2,6 +2,9 @@ package book.questions
 
 import book.entries.BookEntry
 
+/**
+  * Who is the oldest person in the address book?
+  */
 class Question2 extends Question {
   var oldest: Option[BookEntry] = None
 

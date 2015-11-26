@@ -9,16 +9,18 @@ object AddressBook {
   val questions = List(new Question1(), new Question2, new Question3)
 
   def main(args: Array[String]): Unit = {
+    // Get file resource
     val inputFileUrl = AddressBook.getClass.getResource("AddressBook")
     assert(inputFileUrl != null)
 
+    // Create line iterator
     val input = Source.fromURL(inputFileUrl).getLines()
+    // map parsing function over it
     val entries = input.map(parseInputLine)
-
-
+    // Read the file / iterate feeding entries to the questions
     entries.foreach(e => questions.foreach(_.input(e)))
-
-    questions.foreach(q=> println(q.answer))
+    // get the answers out
+    questions.foreach(q => println(q.answer))
   }
 
   def parseInputLine(line: String) = {

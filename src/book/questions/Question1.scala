@@ -2,6 +2,9 @@ package book.questions
 
 import book.entries.{Male, BookEntry}
 
+/**
+  * How many males are in the address book?
+  */
 class Question1 extends Question {
   var numberOfMales = 0
 

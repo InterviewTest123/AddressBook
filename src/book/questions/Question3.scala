@@ -4,6 +4,9 @@ import java.util.concurrent.TimeUnit
 
 import book.entries.BookEntry
 
+/**
+  * How many days older is Bill than Paul?
+  */
 class Question3 extends Question {
   var bill: Option[BookEntry] = None
   var paul: Option[BookEntry] = None
