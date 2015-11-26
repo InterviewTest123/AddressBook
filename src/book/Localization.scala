@@ -7,5 +7,5 @@ object Localization {
   val separator = ", "
   val maleString = "Male"
   val femaleString = "Female"
-  val dateFormat = new SimpleDateFormat("dd/MM/yy")
+  val dateFormat: DateFormat = new SimpleDateFormat("dd/MM/yy")
 }

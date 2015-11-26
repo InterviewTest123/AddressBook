@@ -1,17 +1,24 @@
 package book
 
 import book.entries.BookEntry
+import book.questions._
 
 import scala.io.Source
 
 object AddressBook {
+  val questions = List(new Question1(), new Question2, new Question3)
+
   def main(args: Array[String]): Unit = {
     val inputFileUrl = AddressBook.getClass.getResource("AddressBook")
     assert(inputFileUrl != null)
 
     val input = Source.fromURL(inputFileUrl).getLines()
+    val entries = input.map(parseInputLine)
 
-    val entries = input.map(parseInputLine).toList
+
+    entries.foreach(e => questions.foreach(_.input(e)))
+
+    questions.foreach(q=> println(q.answer))
   }
 
   def parseInputLine(line: String) = {
@@ -23,6 +30,6 @@ object AddressBook {
     val sex = entries(1)
     val dob = Localization.dateFormat.parse(entries(2))
 
-    BookEntry(name, surname, sex, dob)
+    BookEntry(name, surname.trim, sex, dob)
   }
 }
